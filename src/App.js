@@ -4,8 +4,9 @@ import BitcoinHistory from './features/BitcoinHistory';
 
 function App() {
   return (
-    <div >
-      <h1>Aboveit Hjemmeoppgave</h1>
+    <div className="app">
+      <header className="app_header">Aboveit Hjemmeoppgave</header>
+      <hr/>
       <BitcoinHistory></BitcoinHistory>
     </div>
   );
