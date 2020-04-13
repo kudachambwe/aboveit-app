@@ -10,7 +10,7 @@ export const Pagination = ({
 
     const getPageNumbers = () => {
         const pageNumbers = []; 
-        for (let i = 1; i < Math.ceil(totalItems / itemsPerPage); i++) {
+        for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
             pageNumbers.push(i); 
         }
         return pageNumbers; 
@@ -18,7 +18,7 @@ export const Pagination = ({
 
     return (
         <nav>
-            {/* <button href="!#" type="button" onClick={paginatePrev}> &lt;&lt; Previous</button> */}
+            <button href="!#" type="button" onClick={paginatePrev}> &lt;&lt; Previous</button>
             <div style={{display: 'flex'}} className="pagination">
                 {getPageNumbers().map(number => (
                     <form key={number} className="page-item"> 
@@ -28,7 +28,7 @@ export const Pagination = ({
                     </form>
                 ))}
             </div>
-            {/* <button href="!#" type="button" onClick={paginateNext}>Next &gt;&gt; </button> */}
+            <button href="!#" type="button" onClick={paginateNext}>Next &gt;&gt; </button>
         </nav>
     );
 };

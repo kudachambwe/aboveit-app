@@ -22,9 +22,10 @@ import ErrorView from '../views/ErrorView';
     useEffect(() => {
         fetchBitcoinData()
             .then((response) => {
+                const dataSize = response.Data.Data.length; 
                 setBitcoinData(response.Data.Data);
-                setTotalItems(response.Data.Data.length);
-                setMaxPage(Math.ceil(totalItems / itemsPerPage));
+                setTotalItems(dataSize);
+                setMaxPage(Math.ceil(dataSize / itemsPerPage));
                 setIsLoading(false); 
                 setWarning(response.Data.HasWarning); 
             })
@@ -44,16 +45,12 @@ import ErrorView from '../views/ErrorView';
         return setCurrentPage(pageNumber);
     };
 
-    // TODO: Fix this.
     const paginateNext = () => {
-        console.log('currentData', currentData)
         const pageNumber =  Math.min(currentPage + 1, maxPage);
         return paginate(pageNumber); 
     }; 
 
-    // TODO: Fix this.
     const paginatePrevious = () => {
-        console.log('currentData', currentData)
         const pageNumber = Math.max(currentPage - 1, 1); 
         return paginate(pageNumber); 
     }; 
