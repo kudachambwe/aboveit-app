@@ -1,13 +1,16 @@
 import React from 'react'
 import { parseUnixTimestamp } from '../../utils';
 import { HEADER_LABELS } from '../../constants';
+import '../../assets/styles/main.scss'; 
 
 export const TableView = ({ data }) => {
 
     const renderTableHeader = () => {
         let header = HEADER_LABELS; 
         return header.map((key, index) => {
-            return <th key={index}>{key.toUpperCase()}</th>
+            return <th key={index}>
+                {key.toUpperCase()}
+            </th>
         }); 
     }
 
@@ -30,10 +33,9 @@ export const TableView = ({ data }) => {
     }
 
     return (
-        <div>
-             <h2>Bitcoin History</h2>
-            {/* <small>({ parseUnixTimestamp(data.TimeFrom)} - {parseUnixTimestamp(data.TimeTo)})</small> */}
-            <table>
+        <div className="center large overflow-auto">
+             <h1 className="secodary-color">Bitcoin History</h1>
+            <table >
                 <tbody>
                     <tr>{renderTableHeader()}</tr>
                     {renderTableData(data)}

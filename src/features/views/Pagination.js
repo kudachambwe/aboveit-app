@@ -1,11 +1,13 @@
 import React from 'react'; 
+import '../../assets/styles/main.scss'; 
 
 export const Pagination = ({ 
     itemsPerPage, 
     totalItems, 
     paginate, 
     paginateNext, 
-    paginatePrev 
+    paginatePrev,
+    currentPage
  }) => {
 
     const getPageNumbers = () => {
@@ -17,18 +19,23 @@ export const Pagination = ({
     }
 
     return (
-        <nav>
-            <button href="!#" type="button" onClick={paginatePrev}> &lt;&lt; Previous</button>
-            <div style={{display: 'flex'}} className="pagination">
+        <nav className="center large">
+            <button className="medium small-mg" href="!#" type="button" onClick={paginatePrev}>
+                Prev
+            </button>
+            <div className="pagination hide-mobile">
                 {getPageNumbers().map(number => (
-                    <form key={number} className="page-item"> 
-                        <button href="!#" onClick={() => paginate(number)} className="page-item__link">
-                            {number}
-                        </button>
-                    </form>
+                    <a key={number} 
+                        href="!#" 
+                        className={(currentPage === number ? 'active' : '')}
+                        onClick={() => paginate(number)} >
+                        {number}
+                    </a>
                 ))}
             </div>
-            <button href="!#" type="button" onClick={paginateNext}>Next &gt;&gt; </button>
+            <button className="medium small-mg" href="!#" type="button" onClick={paginateNext}>
+                Next
+            </button>
         </nav>
     );
 };

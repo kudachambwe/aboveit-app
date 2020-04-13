@@ -5,19 +5,21 @@ import { MAX_ITEMS_PER_PAGE } from '../../constants';
 import { Pagination } from '../views/Pagination';
 import { LoadingView } from '../views/LoadingView';
 import ErrorView from '../views/ErrorView';
+import '../../assets/styles/main.scss'; 
 
  export const BitcoinHistory = () => {
 
     const [isLoading, setIsLoading] = useState(true); 
     const [hasErrors, setErrors] = useState(false); 
-    const [hasWarning, setWarning] = useState(false)
+    const [hasWarning, setWarning] = useState(false); 
     const [bitcoinData, setBitcoinData] = useState([]);
     const [totalItems, setTotalItems] = useState(0); 
     
     // Pagination Hooks
     const [currentPage, setCurrentPage] = useState(1); 
-    const [itemsPerPage] = useState(MAX_ITEMS_PER_PAGE);
     const [maxPage, setMaxPage] = useState(0);  
+    
+    const itemsPerPage = MAX_ITEMS_PER_PAGE;
 
     useEffect(() => {
         fetchBitcoinData()
@@ -34,14 +36,13 @@ import ErrorView from '../views/ErrorView';
                 console.log(error);
             })
 
-        }, []); 
+        }, [itemsPerPage]); 
 
     const indexOfLast = currentPage * itemsPerPage; 
     const indexOfFirst = indexOfLast - itemsPerPage; 
     const currentData = bitcoinData.slice(indexOfFirst, indexOfLast);
 
     const paginate = (pageNumber) => {
-        console.log('currentData', currentData)
         return setCurrentPage(pageNumber);
     };
 
@@ -62,7 +63,7 @@ import ErrorView from '../views/ErrorView';
     return (
         <section>
             <div>
-                {hasWarning ? <p>A warning occured</p> : "" }
+                {hasWarning ? <p className="large warning">**A warning occured!</p> : "" }
                 <TableView data={currentData}/>
                 <Pagination
                     itemsPerPage={itemsPerPage}
@@ -70,6 +71,7 @@ import ErrorView from '../views/ErrorView';
                     paginate={paginate}
                     paginateNext={paginateNext}
                     paginatePrev={paginatePrevious}
+                    currentPage={currentPage}
                 />  
             </div>
         </section>

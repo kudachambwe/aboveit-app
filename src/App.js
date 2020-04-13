@@ -1,12 +1,12 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
+import '../src/assets/styles/main.scss';
 import BitcoinHistory from './features/BitcoinHistory';
 
 function App() {
   return (
-    <div className="app">
-      <header className="app_header">Aboveit Hjemmeoppgave</header>
-      <hr/>
+    <div className="full-container">
+      <header className="app__header">Aboveit Hjemmeoppgave</header>
       <BitcoinHistory></BitcoinHistory>
     </div>
   );

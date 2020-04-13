@@ -1,0 +1,57 @@
+/* Theme Colors */
+$primary: #4F6367; 
+$secondary: #B8D8D8; 
+$accent: #7A9E9F;
+
+/* Base Colors */
+$black: #000000;
+$white: #FFFFFF;
+$grey: #BCBEC0;
+$grey-light: #DEDEDE;
+$grey-dark: #454545;
+
+/* Alert Colors */
+$red: #D0021B;
+$yellow: #F5A623;
+$green: #417505;
+
+/* Viewpoint Sizes */
+$tablet: "(min-width: 768px) and (max-width: 1023px)"; 
+$desktop: "(min-width: 1024px)"; 
+$phone: "(max-width: 767px)";
+
+/* Link Colors */
+$link-color: $secondary; 
+
+/* Button Colors */
+$button-color: $white;
+$button-bg: $accent; 
+
+$button-color__hover: $accent;
+$button-bg__hover: $white; 
+
+$button-border__hover: $accent; 
+
+/* Table Colors */
+$table-border: $grey; 
+
+$table-header-bg: $accent; 
+$table-header-color: $white; 
+
+$table-row-color: $primary; 
+
+$table-row__hover: $grey-dark; 
+$table-row__hover-color: $white; 
+$table-row-bg__even: $grey-light; 
+
+/* Pagination Colors */
+$pagination-color: $primary;
+$pagination-bg: $white; 
+
+$pagination-bg__hover: $grey-light;
+$pagination-bg__color: $white;
+$pagination-border: $grey-light;  
+
+$pagination-bg__active: $accent; 
+$pagination-border__active: $accent; 
+

@@ -1,0 +1,32 @@
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table,
+td, 
+th {
+    border: 1px solid $table-border;
+    text-align: left;
+}
+
+th, 
+td {
+    padding: 1rem; 
+}
+
+th {
+    background-color: $table-header-bg;
+    color: $table-header-color; 
+}
+
+tr:nth-child(even) {
+    background-color: $table-row-bg__even; 
+}
+
+tr:hover {
+    background-color: $table-row__hover;
+    color: $table-row__hover-color; 
+}
