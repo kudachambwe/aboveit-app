@@ -18,6 +18,8 @@ import '../../assets/styles/main.scss';
     // Pagination Hooks
     const [currentPage, setCurrentPage] = useState(1); 
     const [maxPage, setMaxPage] = useState(0);  
+    const [dateFrom, setDateFrom] = useState('');
+    const [dateTo, setDateTo] = useState('');
     
     const itemsPerPage = MAX_ITEMS_PER_PAGE;
 
@@ -25,11 +27,13 @@ import '../../assets/styles/main.scss';
         fetchBitcoinData()
             .then((response) => {
                 const dataSize = response.Data.Data.length; 
+                setWarning(response.Data.HasWarning);
                 setBitcoinData(response.Data.Data);
+                setDateFrom(response.Data.TimeFrom)
+                setDateTo(response.Data.TimeTo);
                 setTotalItems(dataSize);
                 setMaxPage(Math.ceil(dataSize / itemsPerPage));
-                setIsLoading(false); 
-                setWarning(response.Data.HasWarning); 
+                setIsLoading(false);  
             })
             .catch(error => {
                 setErrors(true); 
@@ -64,7 +68,11 @@ import '../../assets/styles/main.scss';
         <section>
             <div>
                 {hasWarning ? <p className="large warning">**A warning occured!</p> : "" }
-                <TableView data={currentData}/>
+                <TableView 
+                    data={currentData}
+                    dateFrom={dateFrom}
+                    dateTo={dateTo}
+                />
                 <Pagination
                     itemsPerPage={itemsPerPage}
                     totalItems={totalItems}

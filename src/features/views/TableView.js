@@ -1,9 +1,9 @@
 import React from 'react'
-import { parseUnixTimestamp } from '../../utils';
+import { parseUnixTimestamp, parseUnixDate } from '../../utils';
 import { HEADER_LABELS } from '../../constants';
 import '../../assets/styles/main.scss'; 
 
-export const TableView = ({ data }) => {
+export const TableView = ({ data, dateFrom, dateTo }) => {
 
     const renderTableHeader = () => {
         let header = HEADER_LABELS; 
@@ -14,6 +14,9 @@ export const TableView = ({ data }) => {
         }); 
     }
 
+    const getParsedDate = (date) => {
+        return parseUnixDate(date);
+    }
 
     const renderTableData = (tableData) => {
         return tableData.map((item, index) => {
@@ -35,6 +38,7 @@ export const TableView = ({ data }) => {
     return (
         <div className="center large overflow-auto">
              <h1 className="secodary-color">Bitcoin History</h1>
+            <p className="primary-color">{getParsedDate(dateFrom)} - {getParsedDate(dateTo)}</p>
             <table >
                 <tbody>
                     <tr>{renderTableHeader()}</tr>

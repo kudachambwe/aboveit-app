@@ -1,9 +1,9 @@
-
+import moment from 'moment';; 
 
 export const parseUnixTimestamp = (timestamp) => {
-    return new Date(timestamp).toLocaleTimeString('no-NB')
-}
+    return moment.unix(timestamp).format('lll'); 
+}; 
 
-/**
- * Pagination
- */
+export const parseUnixDate = (timestamp) => {
+    return moment.unix(timestamp).format('LLL'); 
+}; 

@@ -15,6 +15,9 @@ Run the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
+### How to deploy? 
+Build local with `npm run build` or build and deploy with `now --prod`
+
 ## Resources: 
 
 - [Create React App](https://github.com/facebook/create-react-app) - Boilerplate for React App. 
@@ -23,3 +26,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 - Github Actions - Automates the build process for Zeit Now.
 - Node-Sass - Compile scss files to css. 
 - Nodemon - Watches for changes in scss files. 
+- Momentjs - Parsing date time. 
