@@ -1,4 +1,4 @@
-[![Deploy with <ProductName />](https://zeit.co/button)](https://zeit.co/import/project?template=https://github.com/zeit/now/tree/master/examples/gatsby)
+[![Deploy with <ProductName />](https://zeit.co/button)](https://zeit.co/import/project?template=https://github.com/kudachambwe/aboveit-app)
 
 # Aboveit Home Assignment App
 
